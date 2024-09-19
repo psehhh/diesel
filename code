@@ -1,0 +1,60 @@
+#python code
+
+# Define the heat input (Qin) and work output (Wout)
+Qin = float(input("Enter heat input (in Joules): "))
+Wout = float(input("Enter work output (in Joules): "))
+
+# Calculate efficiency
+efficiency = Wout / Qin
+
+# Convert efficiency to a percentage
+efficiency_percentage = efficiency * 100
+
+# Print the results
+print(f"Efficiency: {efficiency_percentage:.2f}%")
+
+
+# Define the absolute temperatures of the hot and cold reservoirs in Kelvin
+Th = float(input("Enter the absolute temperature of the hot reservoir (in Kelvin): "))
+Tc = float(input("Enter the absolute temperature of the cold reservoir (in Kelvin): "))
+
+# Calculate the second law efficiency
+second_law_efficiency = 1 - (Tc / Th)
+
+# Convert efficiency to a percentage
+second_law_efficiency_percentage = second_law_efficiency * 100
+
+# Print the results
+print(f"Second Law Efficiency: {second_law_efficiency_percentage:.2f}%")
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+nx, ny = 100, 100  # Grid size
+dx, dy = 0.1, 0.1  # Grid spacing
+nu = 0.1  # Viscosity
+dt = 0.001  # Time step
+
+# Initialize velocity and pressure fields
+u = np.zeros((nx, ny))
+v = np.zeros((nx, ny))
+p = np.zeros((nx, ny))
+b = np.zeros((nx, ny))
+
+def build_up_b():
+    # Implement a function to build up the b matrix
+
+def pressure_poisson():
+    # Implement a function to solve the pressure Poisson equation
+
+# Main time-stepping loop
+for n in range(100):
+    u, v = set_boundary_conditions(u, v)
+    b = build_up_b()
+    p = pressure_poisson()
+    u, v = update_velocity(u, v, p)
+    
+# Plot the results
+plt.contourf(u, cmap='viridis')
+plt.show()
